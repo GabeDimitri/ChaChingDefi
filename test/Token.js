@@ -6,12 +6,13 @@ const tokens = (n) => {
 }
 
 describe("Token", function () {
-    let token ,accounts ,deployer;
+    let token ,accounts ,deployer,receiver;
     beforeEach(async ()=>{
         const Token = await ethers.getContractFactory("Token");
         token = await Token.deploy('TopG','TGG','1000000');
         accounts = await ethers.getSigners();
         deployer = accounts[0];
+        receiver= accounts[1];
     })
 
     describe('Deployment', ()=>{
@@ -43,5 +44,22 @@ describe("Token", function () {
           });
     })
 
- 
+ describe('sending Tokens', () => {
+    let amount;
+
+    it('Transfer token balances',async ()=>{
+        console.log("deployer balance before", await token.balanceOf(deployer.address));
+        console.log("receiver balance before", await token.balanceOf(receiver.address));
+
+        amount = tokens(100);  // Ensure this function is defined correctly to parse units
+        let transaction = await token.connect(deployer).transfer(receiver.address, amount);
+        await transaction.wait();  // Corrected to wait for the transaction to be mined
+
+        console.log("deployer balance after", await token.balanceOf(deployer.address));
+        console.log("receiver balance after", await token.balanceOf(receiver.address));
+
+        //ensure balance change
+
+    })
+ })
 });
