@@ -7,13 +7,17 @@ contract Token {
     uint256 public decimals =18 ; 
     uint256 public totalSupply;
       // track balances
-        mapping(address=>uint256) public balanceOf;
-       
+    mapping(address=>uint256) public balanceOf;
+    mapping(address=>mapping (address => uint256)) public allowance;   
     event Transfer(
         address indexed from, 
         address indexed to, 
         uint256 value
     );
+
+
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+
 
  // send tokens
     constructor(string memory _name, string memory _symbol, uint256 _totalSupply)
@@ -30,7 +34,7 @@ contract Token {
 
         //require sender has enough tokens
         require(balanceOf[msg.sender]>=_value);
-        require(_to!=address(0));
+        require(_to!=address(0)); 
         //dedeuct token from spender
         balanceOf[msg.sender]=balanceOf[msg.sender] - _value;
         //credit tokens to reciver
@@ -38,6 +42,13 @@ contract Token {
 
         //emit event
         emit Transfer(msg.sender,_to,_value);
+        return true;
+    }
+    function approve(address _spemder, uint256 _value) public returns(bool success){
+        require(_spemder!=address(0));
+
+        allowance[msg.sender][_spemder]= _value;
+        emit Approval(msg.sender,_spemder,_value);
         return true;
     }
 }
