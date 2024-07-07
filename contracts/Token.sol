@@ -55,8 +55,8 @@ contract Token {
     public returns (bool success)
     {
         //check approval
-        require(_value<=balanceOf[_from]);
-        require (_value<= allowance[_from][msg.sender]);
+        require(_value<=balanceOf[_from],'insf funds');
+        require (_value<= allowance[_from][msg.sender],'insf allowance');
 
         //reset allowance
         allowance[_from][msg.sender]=allowance[_from][msg.sender]-_value;
