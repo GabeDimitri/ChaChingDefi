@@ -157,7 +157,7 @@ describe('Exchange', () => {
                result=await transaction.wait();
              });
             it('tracks newly created order', async () => {
-                expect (await exchange.ordersCount()).to.equal(1)
+                expect (await exchange.orderCount()).to.equal(1)
             });
 
             it('emits an Order event', async () => {

@@ -8,7 +8,7 @@ contract Exchange
     uint256 public feePercent;
     mapping(address => mapping(address=>uint256))public tokens;
     mapping(uint256 => _Order) public orders;
-    uint256 public ordersCount;
+    uint256 public orderCount;
     //order mapping
 
     event  Deposit(address token,address user,uint256 amount,uint256 balance);
@@ -50,6 +50,7 @@ contract Exchange
     //check balances
     function withdrawToken(address _token, uint256 _amount) public
     {
+        require(tokens[_token][msg.sender] >= _amount);
         Token(_token).transfer(msg.sender,_amount);
 
         tokens[_token][msg.sender] = tokens[_token][msg.sender]-_amount;
@@ -68,11 +69,11 @@ contract Exchange
         address _tokenGive,
         uint256 _amountGive) public
         {
- 
-        ordersCount = ordersCount+1;
+ require(balanceOf(_tokenGive, msg.sender) >= _amountGive);
+        orderCount = orderCount+1;
 
-        orders[ordersCount] = _Order(
-                ordersCount,
+        orders[orderCount] = _Order(
+                orderCount,
                 msg.sender,
                 _tokenGet,
                 _amountGet,
@@ -83,7 +84,7 @@ contract Exchange
 
             //emit event
             emit Order(
-                ordersCount,
+                orderCount,
                 msg.sender,
                 _tokenGet,
                 _amountGet,
