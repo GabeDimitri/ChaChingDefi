@@ -7,9 +7,30 @@ contract Exchange
     address public feeAccount;
     uint256 public feePercent;
     mapping(address => mapping(address=>uint256))public tokens;
+    mapping(uint256 => _Order) public orders;
+    uint256 public ordersCount;
+    //order mapping
 
     event  Deposit(address token,address user,uint256 amount,uint256 balance);
     event  Withdraw(address token,address user,uint256 amount,uint256 balance);
+    event Order(
+        uint256 id,
+        address user,
+        address tokenGet,
+        uint256 amountGet,
+        address tokenGive,
+        uint256 amountGive,
+        uint256 timestamp
+            );
+    struct _Order{
+        uint256 id;
+        address user;//user who made order
+        address tokenGet;//address of recived
+        uint256 amountGet;
+        address tokenGive;
+        uint256 amountGive;
+        uint256 timestamp;
+    }
 
     constructor (address _feeAccount, uint256 _feePercent)
     {
@@ -41,4 +62,34 @@ contract Exchange
     {
         return tokens[_token][_user];
     }
+    
+    function makeOrder (   address _tokenGet,
+        uint256 _amountGet,
+        address _tokenGive,
+        uint256 _amountGive) public
+        {
+ 
+        ordersCount = ordersCount+1;
+
+        orders[ordersCount] = _Order(
+                ordersCount,
+                msg.sender,
+                _tokenGet,
+                _amountGet,
+                _tokenGive,
+                _amountGive,
+                block.timestamp
+            );
+
+            //emit event
+            emit Order(
+                ordersCount,
+                msg.sender,
+                _tokenGet,
+                _amountGet,
+                _tokenGive,
+                _amountGive,
+                block.timestamp
+            );
+        }
 }
