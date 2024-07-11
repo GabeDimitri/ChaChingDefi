@@ -9,7 +9,7 @@ describe("Token", function () {
     let token ,accounts ,deployer,receiver,exchange;
     beforeEach(async ()=>{
         const Token = await ethers.getContractFactory("Token");
-        token = await Token.deploy('TopG','TGG','1000000');
+        token = await Token.deploy('Top Gabe Coder','TGC','1000000');
         accounts = await ethers.getSigners();
         deployer = accounts[0];
         receiver= accounts[1];
@@ -17,8 +17,8 @@ describe("Token", function () {
     })
 
     describe('Deployment', ()=>{
-        const name = 'TopG';
-        const symbol = 'TGG';
+        const name = 'Top Gabe Coder';
+        const symbol = 'TGC';
         const decimals = '18';
         const totalSupply = tokens('1000000');
         
