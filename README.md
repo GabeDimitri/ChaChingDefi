@@ -1,22 +1,57 @@
-# This is a Custom built DEX to work in confluence with TRW Platform
+
+# Custom built DEX to work in confluence with TRW Platform
+
 ## Setting up
-clone repo
-npm install
 
-## to deploy to blockchain run
-npx hardhat run --network localhost .\scripts\1_deploy.js
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-##to seed exchange run
-npx hardhat run --network localhost  .\scripts\2_seed-exchange.js
+## Deploying to Blockchain
 
-##ro run a testnode
+To deploy the smart contracts to the blockchain:
+```bash
+npx hardhat run --network localhost ./scripts/1_deploy.js
+```
+
+## Seeding the Exchange
+
+To seed the exchange with initial data:
+```bash
+npx hardhat run --network localhost ./scripts/2_seed-exchange.js
+```
+
+## Running a Test Node
+
+To run a local test node:
+```bash
 npx hardhat node
+```
 
-##to run testcases for exchange 
-npx hardhat test .\test\Exchange.js
+## Running Test Cases for Exchange
 
-##to run all testcases(token included)
+To run test cases specifically for the exchange:
+```bash
+npx hardhat test ./test/Exchange.js
+```
+
+## Running All Test Cases (Including Token Tests)
+
+To run all test cases, including those for tokens:
+```bash
 npx hardhat test
+```
 
-# To run app
-npm run-script start  
+## Running the Application
+
+To start the application:
+```bash
+npm run-script start
+```
+
+Replace `<repository-url>` with the actual URL of your repository. This `README.md` structure provides clear instructions for setting up, deploying, seeding, running tests, and starting the application.
