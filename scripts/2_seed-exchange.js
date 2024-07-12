@@ -39,6 +39,7 @@ async function main() {
   // user1 transfers 10,000 mETH...
   let transaction, result
   transaction = await mETH.connect(sender).transfer(receiver.address, amount)
+  await transaction.wait()
   console.log(`Transferred ${amount} tokens from ${sender.address} to ${receiver.address}\n`)
 
   // Set up exchange users
@@ -73,24 +74,31 @@ async function main() {
   console.log(`Made order from ${user1.address}`)
 
   // User 1 cancels order
-  orderId = result.events[0].args.id
+  orderId = result.events[0]?.args.id
+  if (!orderId) {
+    console.error("Order ID not found in the events.")
+    return
+  }
   transaction = await exchange.connect(user1).cancelOrder(orderId)
-  result = await transaction.wait()
+  await transaction.wait()
   console.log(`Cancelled order from ${user1.address}\n`)
 
   // Wait 1 second
   await wait(1)
 
- 
   // User 1 makes order
   transaction = await exchange.connect(user1).makeOrder(mETH.address, tokens(100), TGC.address, tokens(10))
   result = await transaction.wait()
   console.log(`Made order from ${user1.address}`)
 
   // User 2 fills order
-  orderId = result.events[0].args.id
+  orderId = result.events[0]?.args.id
+  if (!orderId) {
+    console.error("Order ID not found in the events.")
+    return
+  }
   transaction = await exchange.connect(user2).fillOrder(orderId)
-  result = await transaction.wait()
+  await transaction.wait()
   console.log(`Filled order from ${user1.address}\n`)
 
   // Wait 1 second
@@ -102,9 +110,13 @@ async function main() {
   console.log(`Made order from ${user1.address}`)
 
   // User 2 fills another order
-  orderId = result.events[0].args.id
+  orderId = result.events[0]?.args.id
+  if (!orderId) {
+    console.error("Order ID not found in the events.")
+    return
+  }
   transaction = await exchange.connect(user2).fillOrder(orderId)
-  result = await transaction.wait()
+  await transaction.wait()
   console.log(`Filled order from ${user1.address}\n`)
 
   // Wait 1 second
@@ -116,20 +128,22 @@ async function main() {
   console.log(`Made order from ${user1.address}`)
 
   // User 2 fills final order
-  orderId = result.events[0].args.id
+  orderId = result.events[0]?.args.id
+  if (!orderId) {
+    console.error("Order ID not found in the events.")
+    return
+  }
   transaction = await exchange.connect(user2).fillOrder(orderId)
-  result = await transaction.wait()
+  await transaction.wait()
   console.log(`Filled order from ${user1.address}\n`)
 
   // Wait 1 second
   await wait(1)
 
- //seeed
-
   // User 1 makes 10 orders
   for(let i = 1; i <= 10; i++) {
     transaction = await exchange.connect(user1).makeOrder(mETH.address, tokens(10 * i), TGC.address, tokens(10))
-    result = await transaction.wait()
+    await transaction.wait()
 
     console.log(`Made order from ${user1.address}`)
 
@@ -140,14 +154,13 @@ async function main() {
   // User 2 makes 10 orders
   for (let i = 1; i <= 10; i++) {
     transaction = await exchange.connect(user2).makeOrder(TGC.address, tokens(10), mETH.address, tokens(10 * i))
-    result = await transaction.wait()
+    await transaction.wait()
 
     console.log(`Made order from ${user2.address}`)
 
     // Wait 1 second
     await wait(1)
   }
-
 }
 
 main()
