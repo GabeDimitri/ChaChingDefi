@@ -30,11 +30,11 @@ function App() {
   return (
     <div>
       {/* Navbar */}
-      <h1>TRW Exchange</h1>
-          <img src={logo} alt="Logo" width="60px" height="60px" />
+      
       <main className='exchange grid'>
         <section className='exchange__section--left grid'>
-          
+        <h1>TRW Exchange</h1>
+          <img src={logo} alt="Logo" width="60px" height="60px" />
           {/* Markets */}
           {/* Balance */}
           {/* Order */}
