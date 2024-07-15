@@ -9,11 +9,11 @@ const TradingViewWidget = () => {
       new window.TradingView.widget({
         container_id: 'tradingview_btcusd',
         width: '100%',
-        height: '400',
+        height: '1000vh',
         symbol: 'BITSTAMP:BTCUSD',
         interval: 'D',
         timezone: 'Etc/UTC',
-        theme: 'light',
+        theme: 'dark',  // Set theme to dark
         style: '1',
         locale: 'en',
         toolbar_bg: '#f1f3f6',
@@ -30,7 +30,7 @@ const TradingViewWidget = () => {
     document.body.appendChild(script);
   }, []);
 
-  return <div id="tradingview_btcusd" style={{ width: '1080px', height: '720px' }} />;
+  return <div id="tradingview_btcusd" className="exchange__chart" style={{ width: '100%', height: '80vh' }} />;
 };
 
 export default TradingViewWidget;

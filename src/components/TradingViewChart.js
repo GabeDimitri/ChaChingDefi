@@ -52,7 +52,7 @@ const TradingViewChart = () => {
     };
   }, []);
 
-  return <div ref={chartContainerRef} style={{ width: '100%', height: '80vh' }} />;
+  return <div ref={chartContainerRef} className="exchange__chart" style={{ width: '100%', height: '80vh' }} />;
 };
 
 export default TradingViewChart;

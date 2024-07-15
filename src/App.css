@@ -427,6 +427,15 @@ hr {
   transition: all 250ms ease;
 }
 
+.exchange__chart.position-opened::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%; /* Adjust to your current position */
+  border-top: 2px solid red; /* Customize the line color and style */
+  z-index: 1; /* Ensure it overlays the chart */
+}
 .button--sm {
   width: 50%;
 
