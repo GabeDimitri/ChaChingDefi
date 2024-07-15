@@ -216,7 +216,8 @@ small {
 }
 
 .exchange__header--account button:hover {
-  background: var(--clr-blue);
+  background: #edca7a;
+  color: #0E1623;
   border: none;
 }
 
