@@ -1,3 +1,5 @@
+import { ethers } from "ethers"
+
 export const provider = (state = {}, action) => {
     switch (action.type) {
         case 'PROVIDER_LOADDED':
@@ -15,27 +17,49 @@ export const provider = (state = {}, action) => {
                 ...state,
                 connection: action.account
             }
-        case 'TOKEN_LOADDED':
+        case 'ETHER_BALANCE_LOADED':
             return {
                 ...state,
-                connection: action.token
+                account: action.balance
             }
         default:
             return state
     }
 }
-
-export const tokens = (state = { loaded: false, contract: null }, action) => {
+const DEFAULT_TOKEN_STATE = { loaded: false, contracts: [],symbols:[] };
+export const tokens = (state =DEFAULT_TOKEN_STATE , action) => {
     switch (action.type) {
 
-        case 'TOKEN_LOADDED':
+        case 'TOKEN_1_LOADDED':
             return {
                 ...state,
                 loaded:true,
-                contract: action.token,
-                symbol:action.symbol,
+                contracts: [...state.contracts,action.token],
+                symbols:[...state.symbols,action.symbol],
+            }
+            case 'TOKEN_2_LOADDED':
+            return {
+                ...state,
+                loaded:true,
+                contracts: [...state.contracts,action.token],
+                symbols:[...state.symbols,action.symbol],
             }
         default:
             return state
     }
 }
+
+export const exchange = (state = { loaded: false, contract: {} }, action) => {
+    switch (action.type) {
+      case 'EXCHANGE_LOADED':
+        return {
+          ...state,
+          loaded: true,
+          contract: action.exchange
+        }
+  
+        default:
+          return state
+    }
+  }
+  

@@ -4,7 +4,7 @@ import logoTGC from '../assets/tgc.png';
 import { useEffect } from 'react';
 import config from '../config.json'
 import { useDispatch } from 'react-redux';
-import { loadProvider, loadNetwork, loadAccount, loadToken } from '../store/interactions';
+import { loadProvider, loadNetwork, loadAccount, loadTokens,loadExchange } from '../store/interactions';
 import TradingViewWidget from './TradingViewWidget';
 import TradingViewChart from './TradingViewChart';
 
@@ -12,10 +12,17 @@ function App() {
   const dispatch = useDispatch();
   const loadBockchainData = async () => {
 
-    await loadAccount(dispatch);
     const provider = loadProvider(dispatch);
     const chainId = await loadNetwork(provider, dispatch);
-    await loadToken(provider, config[chainId].TGC.address, dispatch);
+    await loadAccount(provider,dispatch);
+
+
+    const TGC =config[chainId].TGC;
+    const mETH =config[chainId].mETH;
+    await loadTokens(provider, [TGC.address,mETH.address], dispatch);
+
+    const exchangeConfig =config[chainId].exchange;
+    await loadExchange(provider,exchangeConfig.address,dispatch)
   }
   useEffect(() => {
     loadBockchainData()
