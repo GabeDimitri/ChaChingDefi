@@ -409,10 +409,10 @@ hr {
 
 .button,
 .button--sm {
-  background: transparent;
-  color: var(--clr-blue);
+  background: var(--clr-primary);
+  color: var(--clr-secondary);
 
-  border: 1.5px solid var(--clr-blue);
+  border: 1.5px solid var(--);
   border-radius: 10px;
 
   width: 100%;
@@ -470,7 +470,7 @@ hr {
 .button:hover,
 .button--sm:hover {
   color: var(--clr-white);
-  border: 1.5px solid var(--clr-white);
+  border: 1.5px solid #edca7a;
 }
 
 .button:hover span::after {
@@ -548,7 +548,8 @@ input::placeholder {
 }
 
 .tab--active {
-  background: var(--clr-blue);
+  background: #edca7a;
+  color: #222D41;
 }
 
 /* ------------------------------------------------------ */
