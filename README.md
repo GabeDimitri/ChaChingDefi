@@ -54,4 +54,21 @@ To start the application:
 npm run-script start
 ```
 
-Replace `<repository-url>` with the actual URL of your repository. This `README.md` structure provides clear instructions for setting up, deploying, seeding, running tests, and starting the application.
+# Recap:
+1) run the node script
+   ```bash
+   npx hardhat node
+   ```
+2) Run deploy script
+   ```bash
+   npx hardhat run --network localhost ./scripts/1_deploy.js
+   ```
+3) Run seed script
+    ```bash
+   npx hardhat run --network localhost ./scripts/2_seed-exchange.js
+    ```
+4) Run the application
+    ```bash
+   npm run-script start
+    ```
+
