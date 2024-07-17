@@ -41,23 +41,14 @@ export const provider = (state = {}, action) => {
           contracts: [ action.token],
           symbols: [action.symbol]
         }
-      case 'TOKEN_1_BALANCE_LOADED':
+      case 'TOKEN_2_LOADED':
         return {
           ...state,
-          balances:[action.balance]
+          loaded: true,
+          contracts: [ action.token],
+          symbols: [action.symbol]
         }
-        case 'TOKEN_2_LOADED':
-          return {
-            ...state,
-            loaded: true,
-            contracts: [ ...state.contracts,action.token],
-            symbols: [...state.symbols,action.symbol]
-          }
-          case 'TOKEN_2_BALANCE_LOADED':
-        return {
-          ...state,
-          balances:[...state.balances,action.balance]
-        }
+  
         default:
           return state
     }
@@ -70,20 +61,6 @@ export const provider = (state = {}, action) => {
           ...state,
           loaded: true,
           contract: action.exchange
-        }
-
-        case 'EXCHANGE_TOKEN1_LOADED':
-        return {
-          ...state,
-          loaded: true,
-          balances: action.balance
-        }
-
-        case 'EXCHANGE_TOKEN2_LOADED':
-        return {
-          ...state,
-          loaded: true,
-          balances: [...state.balances,action.balance]
         }
   
         default:
