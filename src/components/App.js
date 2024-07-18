@@ -9,6 +9,7 @@ import TradingViewChart from './TradingViewChart';
 import Navbar from './Navbar';
 import Markets from './Markets';
 import Balance from './Balance';
+import Order from './Order'
 function App() {
   const dispatch = useDispatch();
   const loadBockchainData = async () => {
@@ -45,7 +46,7 @@ function App() {
        
           <Markets/>
           <Balance/>
-          {/* Order */}
+          <Order/>
         </section>
         <section className='exchange__section--right grid'>
           
