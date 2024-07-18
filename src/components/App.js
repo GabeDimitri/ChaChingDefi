@@ -3,7 +3,7 @@ import '../App.css';
 import { useEffect } from 'react';
 import config from '../config.json'
 import { useDispatch } from 'react-redux';
-import { loadProvider, loadNetwork, loadAccount, loadTokens,loadExchange } from '../store/interactions';
+import { loadProvider, loadNetwork, loadAccount, loadTokens,loadExchange,subscribeToEvents } from '../store/interactions';
 import TradingViewWidget from './TradingViewWidget';
 import TradingViewChart from './TradingViewChart';
 import Navbar from './Navbar';
@@ -29,7 +29,9 @@ function App() {
     await loadTokens(provider, [TGC.address,mETH.address], dispatch);
 
     const exchangeConfig =config[chainId].exchange;
+    const exchange = await loadExchange(provider,exchangeConfig.address,dispatch)
     await loadExchange(provider,exchangeConfig.address,dispatch)
+    subscribeToEvents(exchange,dispatch)
   }
   useEffect(() => {
     loadBockchainData()
