@@ -38,21 +38,34 @@ export const provider = (state = {}, action) => {
         return {
           ...state,
           loaded: true,
-          contracts: [ action.token],
+          contracts: [action.token],
           symbols: [action.symbol]
         }
+      case 'TOKEN_1_BALANCE_LOADED':
+        return {
+          ...state,
+          balances: [action.balance]
+        }
+  
       case 'TOKEN_2_LOADED':
         return {
           ...state,
           loaded: true,
-          contracts: [ action.token],
-          symbols: [action.symbol]
+          contracts: [...state.contracts, action.token],
+          symbols: [...state.symbols, action.symbol]
+        }
+  
+      case 'TOKEN_2_BALANCE_LOADED':
+        return {
+          ...state,
+          balances: [...state.balances, action.balance]
         }
   
         default:
           return state
     }
   }
+  
   
   export const exchange = (state = { loaded: false, contract: {} }, action) => {
     switch (action.type) {

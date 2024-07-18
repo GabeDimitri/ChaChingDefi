@@ -8,6 +8,7 @@ import TradingViewWidget from './TradingViewWidget';
 import TradingViewChart from './TradingViewChart';
 import Navbar from './Navbar';
 import Markets from './Markets';
+import Balance from './Balance';
 function App() {
   const dispatch = useDispatch();
   const loadBockchainData = async () => {
@@ -36,13 +37,12 @@ function App() {
   })
   return (
     <div>
-      {/* Navbar */}
-      <Navbar></Navbar>
+      <Navbar/>
       <main className='exchange grid'>
         <section className='exchange__section--left grid'>
        
-          <Markets></Markets>
-          {/* Balance */}
+          <Markets/>
+          <Balance/>
           {/* Order */}
         </section>
         <section className='exchange__section--right grid'>
@@ -54,9 +54,7 @@ function App() {
           {/* OrderBook */}
 
         </section>
-
       </main>
-
       {/* Alert */}
     </div>
   );
