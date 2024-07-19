@@ -11,6 +11,8 @@ import Markets from './Markets';
 import Balance from './Balance';
 import Order from './Order'
 import OrderBook from './OrderBook';
+import Trades from './Trades';
+import PriceChart from './PriceChart';
 function App() {
   const dispatch = useDispatch();
   const loadBockchainData = async () => {
@@ -52,10 +54,10 @@ function App() {
         </section>
         <section className='exchange__section--right grid'>
           
-         <TradingViewWidget/>
-          {/* PriceChart */}
+         
+        <PriceChart/>
           {/* Transactions */}
-          {/* Trades */}
+         <Trades/>
          <OrderBook/>
 
         </section>
