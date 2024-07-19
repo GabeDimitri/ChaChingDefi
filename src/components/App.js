@@ -3,13 +3,14 @@ import '../App.css';
 import { useEffect } from 'react';
 import config from '../config.json'
 import { useDispatch } from 'react-redux';
-import { loadProvider, loadNetwork, loadAccount, loadTokens,loadExchange,subscribeToEvents } from '../store/interactions';
+import { loadProvider, loadNetwork, loadAccount, loadTokens,loadExchange,subscribeToEvents, loadAllOrders } from '../store/interactions';
 import TradingViewWidget from './TradingViewWidget';
 import TradingViewChart from './TradingViewChart';
 import Navbar from './Navbar';
 import Markets from './Markets';
 import Balance from './Balance';
 import Order from './Order'
+import OrderBook from './OrderBook';
 function App() {
   const dispatch = useDispatch();
   const loadBockchainData = async () => {
@@ -32,6 +33,7 @@ function App() {
     const exchangeConfig =config[chainId].exchange;
     const exchange = await loadExchange(provider,exchangeConfig.address,dispatch)
     await loadExchange(provider,exchangeConfig.address,dispatch)
+    loadAllOrders(provider,exchange,dispatch)
     subscribeToEvents(exchange,dispatch)
   }
   useEffect(() => {
@@ -54,7 +56,7 @@ function App() {
           {/* PriceChart */}
           {/* Transactions */}
           {/* Trades */}
-          {/* OrderBook */}
+         <OrderBook/>
 
         </section>
       </main>

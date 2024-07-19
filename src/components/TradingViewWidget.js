@@ -9,7 +9,7 @@ const TradingViewWidget = () => {
       new window.TradingView.widget({
         container_id: 'tradingview_btcusd',
         width: '100%',
-        height: '1000vh',
+        height: '100%',
         symbol: 'BITSTAMP:BTCUSD',
         interval: 'D',
         timezone: 'Etc/UTC',
@@ -20,11 +20,7 @@ const TradingViewWidget = () => {
         enable_publishing: false,
         allow_symbol_change: true,
         save_image: false,
-        studies: [
-          'MACD@tv-basicstudies',
-          'RSI@tv-basicstudies',
-          'BB@tv-basicstudies'
-        ],
+   
       });
     };
     document.body.appendChild(script);
