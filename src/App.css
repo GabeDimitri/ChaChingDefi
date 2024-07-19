@@ -54,7 +54,7 @@ small {
 }
 
 small {
-  color: var(--clr-neutral);
+  color: #edca7a;
 }
 
 /* ------------------------------------------------------ */
@@ -410,9 +410,9 @@ hr {
 .button,
 .button--sm {
   background: transparent;
-  color: var(--clr-blue);
+  color:  #edca7a;
 
-  border: 1.5px solid var(--clr-blue);
+  border: 1.5px solid  #edca7a;
   border-radius: 10px;
 
   width: 100%;
@@ -469,8 +469,8 @@ hr {
 
 .button:hover,
 .button--sm:hover {
-  color: var(--clr-white);
-  border: 1.5px solid var(--clr-white);
+  color: var(--clr-primary);
+  border: 1.5px solid  var(--clr-primary);
 }
 
 .button:hover span::after {
@@ -479,8 +479,8 @@ hr {
 }
 
 .button--filled {
-  background: var(--clr-blue);
-  color: var(--clr-text);
+  background:  #edca7a;
+  color: var(--clr-primary);
   border: 1px solid transparent;
 }
 
@@ -496,8 +496,8 @@ hr {
 /* -- Input -- */
 
 input {
-  background: var(--clr-primary);
-  color: var(--clr-text);
+  background: #edca7a;
+  color: var(--clr-primary);
 
   border: none;
   border-radius: 10px;
@@ -548,7 +548,8 @@ input::placeholder {
 }
 
 .tab--active {
-  background: var(--clr-blue);
+  background:  #edca7a;
+  color: #0E1623;
 }
 
 /* ------------------------------------------------------ */

@@ -56,7 +56,7 @@ function App() {
         <section className='exchange__section--right grid'>
           
          
-        <PriceChart/>
+        <TradingViewWidget/>
         <Transactions/>
          <Trades/>
          <OrderBook/>
