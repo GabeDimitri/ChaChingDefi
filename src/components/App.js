@@ -13,6 +13,7 @@ import Order from './Order'
 import OrderBook from './OrderBook';
 import Trades from './Trades';
 import PriceChart from './PriceChart';
+import Transactions from './Transactions';
 function App() {
   const dispatch = useDispatch();
   const loadBockchainData = async () => {
@@ -56,7 +57,7 @@ function App() {
           
          
         <PriceChart/>
-          {/* Transactions */}
+        <Transactions/>
          <Trades/>
          <OrderBook/>
 
