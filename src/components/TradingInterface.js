@@ -116,260 +116,204 @@ const TradingInterface = () => {
   return (
     <div className="trading-interface">
 
-      {/* Main Trading Layout */}
-      <div className="trading-content">
+      {/* Left Sidebar - Trading Controls */}
+      <div className="trading-sidebar-left">
         
-        {/* Left Column - TradingView Chart */}
-        <div className="chart-section">
-          <TradingViewChart
-            key={selectedPair}
-            ref={chartRef}
-            onPriceClick={handleChartPriceClick}
-            currentPrice={currentPrice}
-            pair={selectedPair}
-          />
+        {/* Pair Selector */}
+        <div className="pair-selector">
+          <div className="pair-info">
+            <div className="pair-symbol">ETH-PERP</div>
+            <div className="pair-price">$4,665.94</div>
+          </div>
+          <div className="pair-stats">
+            <div className="stat-item">
+              <span className="stat-label">24h Change</span>
+              <span className="stat-value negative">-0.03%</span>
+            </div>
+          </div>
         </div>
 
-        {/* Sidebar - Order Book & Order Panel */}
-        <div className="trading-sidebar">
-          
-          {/* Order Book */}
-          <div className="order-book">
-            <div className="order-book-header">
-              <h3 className="panel-title">Order Book</h3>
-              <div className="order-book-tabs">
-                <button className="book-tab active">0.01</button>
-                <button className="book-tab">0.1</button>
-                <button className="book-tab">1</button>
+        {/* Order Type Tabs */}
+        <div className="order-type-tabs">
+          <button className={`tab-btn ${orderType === 'market' ? 'active' : ''}`} onClick={() => setOrderType('market')}>Market</button>
+          <button className={`tab-btn ${orderType === 'limit' ? 'active' : ''}`} onClick={() => setOrderType('limit')}>Limit</button>
+          <button className={`tab-btn ${orderType === 'stop' ? 'active' : ''}`} onClick={() => setOrderType('stop')}>Stop</button>
+        </div>
+
+        {/* Order Inputs */}
+        <div className="order-inputs-left">
+          {orderType === 'limit' && (
+            <div className="input-group">
+              <label>Price</label>
+              <div className="input-container">
+                <input
+                  type="number"
+                  placeholder="0.00"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                  className="order-input"
+                />
+                <span className="input-suffix">USD</span>
               </div>
             </div>
+          )}
           
-            <div className="order-book-table">
-              <div className="book-headers">
-                <span className="book-header">Price</span>
-                <span className="book-header">Amount</span>
-                <span className="book-header">Total</span>
-              </div>
-            
-              {/* Order Book Data */}
-              <div className="book-orders">
-                {mockOrderbook.asks.reverse().map((ask, index) => (
-                  <div key={index} className="book-order ask">
-                    <span className="order-price">${ask.price.toFixed(2)}</span>
-                    <span className="order-amount">{ask.amount.toFixed(3)}</span>
-                    <span className="order-total">${ask.total.toFixed(2)}</span>
-                  </div>
-                ))}
-                
-                {mockOrderbook.bids.map((bid, index) => (
-                  <div key={index} className="book-order bid">
-                    <span className="order-price">${bid.price.toFixed(2)}</span>
-                    <span className="order-amount">{bid.amount.toFixed(3)}</span>
-                    <span className="order-total">${bid.total.toFixed(2)}</span>
-                  </div>
-                ))}
-              </div>
-            
+          <div className="input-group">
+            <label>Size</label>
+            <div className="input-container">
+              <input
+                type="number"
+                placeholder="0.00"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                className="order-input"
+              />
+              <span className="input-suffix">ETH</span>
             </div>
           </div>
-          
-          {/* Order Panel */}
-          <div className="order-panel">
-            <div className="panel-header">
-              <div className="side-selector">
-                <button 
-                  className={`side-btn buy ${side === 'buy' ? 'active' : ''}`}
-                  onClick={() => setSide('buy')}
-                >
-                  Buy
-                </button>
-                <button 
-                  className={`side-btn sell ${side === 'sell' ? 'active' : ''}`}
-                  onClick={() => setSide('sell')}
-                >
-                  Sell
-                </button>
-              </div>
-            </div>
-            
-            <div className="order-type-selector">
-              <button 
-                className={`order-type-btn ${orderType === 'market' ? 'active' : ''}`}
-                onClick={() => setOrderType('market')}
-              >
-                Market
-              </button>
-              <button 
-                className={`order-type-btn ${orderType === 'limit' ? 'active' : ''}`}
-                onClick={() => setOrderType('limit')}
-              >
-                Limit
-              </button>
-            </div>
-            
-            <div className="order-inputs">
-              {orderType === 'limit' && (
-                <div className="input-group">
-                  <label>Price</label>
-                  <div className="input-container">
-                    <input
-                      type="number"
-                      placeholder="0.00"
-                      value={price}
-                      onChange={(e) => setPrice(e.target.value)}
-                      className="order-input"
-                    />
-                    <span className="input-suffix">USDC</span>
-                  </div>
-                </div>
-              )}
-              
-              <div className="input-group">
-                <label>Amount</label>
-                <div className="input-container">
-                  <input
-                    type="number"
-                    placeholder="0.00"
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                    className="order-input"
-                  />
-                  <span className="input-suffix">ETH</span>
-                </div>
-              </div>
-              
-              <div className="percentage-buttons">
-                <button className="percent-btn">25%</button>
-                <button className="percent-btn">50%</button>
-                <button className="percent-btn">75%</button>
-                <button className="percent-btn">100%</button>
-              </div>
 
-              {/* Advanced Order Options */}
-              <div className="advanced-options">
-                <button 
-                  className="advanced-toggle"
-                  onClick={() => setShowAdvanced(!showAdvanced)}
-                >
-                  <span>Risk Management</span>
-                  <span className={`toggle-icon ${showAdvanced ? 'open' : ''}`}>▼</span>
-                </button>
-                
-                {showAdvanced && (
-                  <div className="sl-tp-inputs">
-                    <div className="input-group">
-                      <label>
-                        <span className="sl-label">Stop Loss</span>
-                        <span className="sl-hint">
-                          {side === 'buy' ? '(below entry)' : '(above entry)'}
-                        </span>
-                      </label>
-                      <div className="input-container">
-                        <input
-                          type="number"
-                          placeholder="0.00"
-                          value={stopLoss}
-                          onChange={(e) => setStopLoss(e.target.value)}
-                          className="order-input sl-input"
-                        />
-                        <span className="input-suffix">USD</span>
-                      </div>
-                    </div>
-                    
-                    <div className="input-group">
-                      <label>
-                        <span className="tp-label">Take Profit</span>
-                        <span className="tp-hint">
-                          {side === 'buy' ? '(above entry)' : '(below entry)'}
-                        </span>
-                      </label>
-                      <div className="input-container">
-                        <input
-                          type="number"
-                          placeholder="0.00"
-                          value={takeProfit}
-                          onChange={(e) => setTakeProfit(e.target.value)}
-                          className="order-input tp-input"
-                        />
-                        <span className="input-suffix">USD</span>
-                      </div>
-                    </div>
+          <div className="percentage-buttons">
+            <button className="percent-btn">25%</button>
+            <button className="percent-btn">50%</button>
+            <button className="percent-btn">75%</button>
+            <button className="percent-btn">100%</button>
+          </div>
 
-                    {/* Risk/Reward Calculator */}
-                    {price && stopLoss && takeProfit && (
-                      <div className="risk-reward-calc">
-                        <div className="rr-header">Risk/Reward Analysis</div>
-                        <div className="rr-details">
-                          <div className="rr-item">
-                            <span>Risk:</span>
-                            <span className="risk-amount">
-                              ${Math.abs(parseFloat(price) - parseFloat(stopLoss)).toFixed(2)}
-                            </span>
-                          </div>
-                          <div className="rr-item">
-                            <span>Reward:</span>
-                            <span className="reward-amount">
-                              ${Math.abs(parseFloat(takeProfit) - parseFloat(price)).toFixed(2)}
-                            </span>
-                          </div>
-                          <div className="rr-item ratio">
-                            <span>R:R Ratio:</span>
-                            <span className="ratio-value">
-                              1:{(Math.abs(parseFloat(takeProfit) - parseFloat(price)) / Math.abs(parseFloat(price) - parseFloat(stopLoss))).toFixed(2)}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-              
-              <div className="order-summary">
-                <div className="summary-row">
-                  <span>Total</span>
-                  <span>≈ $0.00</span>
-                </div>
-                <div className="summary-row">
-                  <span>Fee</span>
-                  <span>≈ $0.00</span>
-                </div>
-              </div>
-              
-              <button 
-                className={`place-order-btn ${side}`}
-                onClick={handlePlaceOrder}
-              >
-                {side === 'buy' ? 'Buy ETH' : 'Sell ETH'}
-              </button>
+          <div className="input-group">
+            <label>Leverage</label>
+            <div className="leverage-selector">
+              <button className="leverage-btn active">1x</button>
+              <button className="leverage-btn">2x</button>
+              <button className="leverage-btn">5x</button>
+              <button className="leverage-btn">10x</button>
+              <button className="leverage-btn">25x</button>
             </div>
           </div>
-          
 
-          {/* Recent Trades */}
-          <div className="recent-trades">
-            <div className="trades-header">
-              <h3 className="panel-title">Recent Trades</h3>
+          <div className="order-summary">
+            <div className="summary-row">
+              <span>Total Cost:</span>
+              <span>$0.00</span>
             </div>
-            <div className="trades-list">
-              <div className="trade-item">
-                <div className="trade-price buy">$2449.75</div>
-                <div className="trade-amount">0.1234</div>
-                <div className="trade-time">14:32:15</div>
+            <div className="summary-row">
+              <span>Fill Price</span>
+              <span>-</span>
+            </div>
+            <div className="summary-row">
+              <span>Price Impact</span>
+              <span>-</span>
+            </div>
+            <div className="summary-row">
+              <span>Max Slippage:</span>
+              <span>5%</span>
+            </div>
+          </div>
+
+          <button className="connect-wallet-btn">
+            Connect Wallet
+          </button>
+        </div>
+      </div>
+
+      {/* Center - Chart */}
+      <div className="chart-section">
+        <TradingViewChart
+          key={selectedPair}
+          ref={chartRef}
+          onPriceClick={handleChartPriceClick}
+          currentPrice={currentPrice}
+          pair={selectedPair}
+        />
+      </div>
+
+      {/* Right Sidebar - Order Book & Positions */}
+      <div className="trading-sidebar-right">
+        
+        {/* Order Book */}
+        <div className="order-book">
+          <div className="order-book-header">
+            <div className="book-title">
+              <span className="amount-label">Amount</span>
+              <span className="price-label">Price</span>
+              <span className="time-label">Time</span>
+            </div>
+          </div>
+        
+          <div className="order-book-table">
+            <div className="book-orders">
+              {/* Mock order book data matching the Synthetix style */}
+              <div className="book-order ask">
+                <span className="order-amount">1,377.66</span>
+                <span className="order-price sell">$4,730.01</span>
+                <span className="order-time">19d ago</span>
               </div>
-              <div className="trade-item">
-                <div className="trade-price sell">$2449.50</div>
-                <div className="trade-amount">0.5678</div>
-                <div className="trade-time">14:32:12</div>
+              <div className="book-order ask">
+                <span className="order-amount">200.00</span>
+                <span className="order-price sell">$4,785.79</span>
+                <span className="order-time">19d ago</span>
               </div>
-              <div className="trade-item">
-                <div className="trade-price buy">$2450.00</div>
-                <div className="trade-amount">0.2345</div>
-                <div className="trade-time">14:32:08</div>
+              <div className="book-order ask">
+                <span className="order-amount">4780.00</span>
+                <span className="order-price sell">$4,792.44</span>
+                <span className="order-time">19d ago</span>
+              </div>
+              <div className="book-order ask">
+                <span className="order-amount">200.00</span>
+                <span className="order-price sell">$4,795.70</span>
+                <span className="order-time">19d ago</span>
+              </div>
+              <div className="book-order ask">
+                <span className="order-amount">160.00</span>
+                <span className="order-price sell">$4,791.67</span>
+                <span className="order-time">19d ago</span>
+              </div>
+              <div className="book-order ask">
+                <span className="order-amount">300.00</span>
+                <span className="order-price sell">$4,786.02</span>
+                <span className="order-time">19d ago</span>
+              </div>
+              <div className="book-order ask">
+                <span className="order-amount">200.00</span>
+                <span className="order-price sell">$4,788.08</span>
+                <span className="order-time">20d ago</span>
+              </div>
+              <div className="book-order bid">
+                <span className="order-amount">4,0000</span>
+                <span className="order-price buy">$4,823.27</span>
+                <span className="order-time">20d ago</span>
+              </div>
+              <div className="book-order bid">
+                <span className="order-amount">50,000</span>
+                <span className="order-price buy">$4,763.36</span>
+                <span className="order-time">20d ago</span>
+              </div>
+              <div className="book-order bid">
+                <span className="order-amount">50,000</span>
+                <span className="order-price buy">$4,762.76</span>
+                <span className="order-time">21d ago</span>
+              </div>
+              <div className="book-order bid">
+                <span className="order-amount">50,000</span>
+                <span className="order-price buy">$4,715.00</span>
+                <span className="order-time">21d ago</span>
+              </div>
+              <div className="book-order bid">
+                <span className="order-amount">240.00</span>
+                <span className="order-price buy">$4,328.22</span>
+                <span className="order-time">23d ago</span>
+              </div>
+              <div className="book-order bid">
+                <span className="order-amount">0.7047</span>
+                <span className="order-price buy">$4,231.69</span>
+                <span className="order-time">25d ago</span>
+              </div>
+              <div className="book-order bid">
+                <span className="order-amount">0.1175</span>
+                <span className="order-price buy">$4,292.76</span>
+                <span className="order-time">25d ago</span>
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     </div>

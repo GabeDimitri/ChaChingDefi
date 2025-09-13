@@ -4,11 +4,12 @@
 .tradingview-chart-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
   height: 100%;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  overflow: visible;
   position: relative;
 }
 
@@ -117,8 +118,9 @@
   position: relative;
   background: var(--bg-primary);
   min-height: 500px;
-  width: 100%;
-  overflow: hidden;
+  height: 100%;
+  overflow: visible;
+  box-sizing: border-box;
 }
 
 .chart-canvas canvas {

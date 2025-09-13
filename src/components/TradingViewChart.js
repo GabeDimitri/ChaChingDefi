@@ -330,10 +330,12 @@ const TradingViewChart = React.forwardRef(({ onPriceClick, currentPrice = 2450, 
         ref={chartContainerRef} 
         className="chart-canvas" 
         style={{ 
-          width: '100%', 
-          height: '500px',
+          width: 'calc(100% - 80px)', 
+          height: '100%',
           background: '#0a0a0a',
-          position: 'relative'
+          position: 'relative',
+          flex: 1,
+          marginRight: '80px'
         }} 
       />
       

@@ -2,9 +2,10 @@
 @import './Minimal.css';
 
 .transfer-interface {
-  max-width: 1400px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   padding: var(--space-6);
+  width: 100%;
 }
 
 .transfer-header {

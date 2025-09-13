@@ -2,8 +2,8 @@
 @import './Minimal.css';
 
 .yield-farming {
-  max-width: 1400px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
 }
 
 .yield-header {
@@ -49,9 +49,10 @@
 /* Farms Grid */
 .farms-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: var(--space-6);
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: var(--space-4);
   margin-bottom: var(--space-8);
+  max-width: 100%;
 }
 
 .farm-card {
@@ -271,9 +272,10 @@
 /* Performance Section */
 .performance-section {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: var(--space-6);
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--space-4);
   margin-top: var(--space-8);
+  width: 100%;
 }
 
 .performance-chart {
