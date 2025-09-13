@@ -1,0 +1,415 @@
+/* Yield Farming - Minimal */
+@import './Minimal.css';
+
+.yield-farming {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.yield-header {
+  margin-bottom: var(--space-6);
+}
+
+.page-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--space-2);
+}
+
+/* Filter Tabs */
+.farm-filters {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.filter-btn {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.filter-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-secondary);
+}
+
+.filter-btn.active {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+}
+
+/* Farms Grid */
+.farms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.farm-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: all var(--transition-base);
+}
+
+.farm-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
+.farm-card.featured {
+  border-color: var(--text-primary);
+}
+
+/* Farm Header */
+.farm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-4);
+}
+
+.farm-pair {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.pair-icons {
+  display: flex;
+  position: relative;
+}
+
+.pair-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--bg-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  border: 2px solid var(--bg-card);
+}
+
+.pair-icon:nth-child(2) {
+  margin-left: -12px;
+}
+
+.pair-name {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+}
+
+.farm-apy {
+  text-align: right;
+}
+
+.apy-value {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--positive);
+}
+
+.apy-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* Farm Featured Badge */
+.featured-badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  background: var(--warning);
+  color: var(--bg-primary);
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+/* Farm Stats */
+.farm-tvl {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: var(--space-4);
+}
+
+.farm-tvl-label {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+}
+
+.farm-tvl-value {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+}
+
+/* User Stats */
+.farm-user-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.user-stat {
+  text-align: center;
+  padding: var(--space-3);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+}
+
+.user-stat-label {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+}
+
+.user-stat-value {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+}
+
+/* Rewards */
+.farm-rewards {
+  padding: var(--space-4);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+}
+
+.rewards-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rewards-label {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+}
+
+.rewards-token {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.rewards-value {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--positive);
+}
+
+/* Progress Bar */
+.rewards-progress {
+  margin-top: var(--space-3);
+  height: 4px;
+  background: var(--bg-hover);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--positive);
+  transition: width var(--transition-slow);
+}
+
+/* Action Buttons */
+.farm-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.farm-btn {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.farm-btn:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-hover);
+}
+
+.farm-btn.primary {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+}
+
+.farm-btn.primary:hover {
+  background: var(--text-secondary);
+  border-color: var(--text-secondary);
+}
+
+/* Performance Section */
+.performance-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.performance-chart {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.chart-placeholder {
+  height: 200px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.chart-bar {
+  flex: 1;
+  max-width: 40px;
+  background: var(--text-primary);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  margin: 0 var(--space-2);
+}
+
+/* Reward History */
+.reward-history {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+}
+
+.history-date {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+}
+
+.history-amount {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.history-token {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--positive);
+}
+
+.history-value {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+/* Quick Actions */
+.quick-actions {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.quick-action-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.quick-action-item:not(:last-child) {
+  margin-bottom: var(--space-3);
+}
+
+.quick-action-item:hover {
+  background: var(--bg-hover);
+}
+
+.action-info h4 {
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  margin-bottom: var(--space-1);
+}
+
+.action-info p {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+}
+
+.action-value {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--positive);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .farms-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .performance-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .farm-actions {
+    grid-template-columns: 1fr;
+  }
+  
+  .farm-user-stats {
+    grid-template-columns: 1fr;
+  }
+}
