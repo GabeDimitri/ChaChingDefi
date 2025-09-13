@@ -11,6 +11,7 @@ import YieldFarming from './YieldFarming';
 import TransferInterface from './TransferInterface';
 import SavingsInterface from './SavingsInterface';
 import TradingInterface from './TradingInterface';
+import MyAccounts from './MyAccounts';
 import Markets from './Markets';
 import Balance from './Balance';
 import Order from './Order'
@@ -89,6 +90,8 @@ function BankApp() {
         return <SavingsInterface />;
       case 'transfer':
         return <TransferInterface />;
+      case 'accounts':
+        return <MyAccounts />;
       default:
         return <BankDashboard />;
     }
@@ -145,6 +148,13 @@ function BankApp() {
               onClick={() => setActiveTab('transfer')}
             >
               <span className="tab-label">Transfer</span>
+            </button>
+            
+            <button 
+              className={`nav-tab ${activeTab === 'accounts' ? 'active' : ''}`}
+              onClick={() => setActiveTab('accounts')}
+            >
+              <span className="tab-label">My Accounts</span>
             </button>
           </div>
           
