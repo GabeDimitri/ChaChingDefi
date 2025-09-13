@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/trwExchange/static/css/main.2b7a092f.css",
+    "main.js": "/trwExchange/static/js/main.11a50251.js",
+    "static/js/453.d0cc53fa.chunk.js": "/trwExchange/static/js/453.d0cc53fa.chunk.js",
+    "static/media/logo.png": "/trwExchange/static/media/logo.7bcfdd1e591911cc0fa2.png",
+    "static/media/tgc.png": "/trwExchange/static/media/tgc.dc49ce612d2bbff793e3.png",
+    "static/media/eth.svg": "/trwExchange/static/media/eth.37fb3a237719070195713f345f83efe2.svg",
+    "static/media/sort.svg": "/trwExchange/static/media/sort.2c2de130343812cb65c091a3d94a7ddd.svg",
+    "index.html": "/trwExchange/index.html",
+    "static/media/right-arrow-blue.svg": "/trwExchange/static/media/right-arrow-blue.ca2b94489a8c12d7dcb1.svg",
+    "static/media/right-arrow-white.svg": "/trwExchange/static/media/right-arrow-white.19d9142149236f77e725.svg",
+    "main.2b7a092f.css.map": "/trwExchange/static/css/main.2b7a092f.css.map",
+    "main.11a50251.js.map": "/trwExchange/static/js/main.11a50251.js.map",
+    "453.d0cc53fa.chunk.js.map": "/trwExchange/static/js/453.d0cc53fa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2b7a092f.css",
+    "static/js/main.11a50251.js"
+  ]
+}
