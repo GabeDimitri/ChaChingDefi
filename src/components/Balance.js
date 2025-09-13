@@ -30,12 +30,9 @@ const Balance = () => {
    }
    else
    {
-    {
       e.target.className = ' tab tab--active'
       withdrawRef.current.className='tab'
       setIsDeposit(true)
-
-     }
    }
   }
 
@@ -81,7 +78,7 @@ const Balance = () => {
     if (exchange && tokens[0] && tokens[1] && account) {
       loadBalances(exchange, tokens, account, dispatch)
     }
-  }, [exchange, tokens, account,transferInProgress])
+  }, [exchange, tokens, account, transferInProgress, dispatch])
 
 
   console.log(symbols)

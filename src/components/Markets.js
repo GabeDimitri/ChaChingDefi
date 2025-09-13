@@ -14,7 +14,7 @@ const Markets = () => {
             <div className='component__header'>
               <h2>Select Market</h2>  
               
-                {chainId ?(
+                {chainId && config[chainId] ?(
                     <select name="markets" id="markets" onChange={marketHandler}>
                     <option value = {`${config[chainId].TGC.address},${config[chainId].mETH.address}`}>TGC / mETH</option>
                     <option value = {`${config[chainId].TGC.address},${config[chainId].mDAI.address}`}>TGC / mDAI</option>

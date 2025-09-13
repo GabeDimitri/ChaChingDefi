@@ -5,14 +5,12 @@ import config from '../config.json'
 import { useDispatch } from 'react-redux';
 import { loadProvider, loadNetwork, loadAccount, loadTokens,loadExchange,subscribeToEvents, loadAllOrders } from '../store/interactions';
 import TradingViewWidget from './TradingViewWidget';
-import TradingViewChart from './TradingViewChart';
 import Navbar from './Navbar';
 import Markets from './Markets';
 import Balance from './Balance';
 import Order from './Order'
 import OrderBook from './OrderBook';
 import Trades from './Trades';
-import PriceChart from './PriceChart';
 import Transactions from './Transactions';
 function App() {
   const dispatch = useDispatch();
@@ -29,11 +27,17 @@ function App() {
       loadAccount(provider, dispatch)
     })
 
-    const TGC =config[chainId].TGC;
-    const mETH =config[chainId].mETH;
-    await loadTokens(provider, [TGC.address,mETH.address], dispatch);
+    // Check if config exists for this chainId before proceeding
+    if (!config[chainId]) {
+      console.error(`No configuration found for chain ID: ${chainId}`);
+      return;
+    }
 
-    const exchangeConfig =config[chainId].exchange;
+    const TGC = config[chainId].TGC;
+    const mETH = config[chainId].mETH;
+    await loadTokens(provider, [TGC.address, mETH.address], dispatch);
+
+    const exchangeConfig = config[chainId].exchange;
     const exchange = await loadExchange(provider,exchangeConfig.address,dispatch)
     await loadExchange(provider,exchangeConfig.address,dispatch)
     loadAllOrders(provider,exchange,dispatch)

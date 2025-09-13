@@ -68,7 +68,7 @@ const Navbar = () => {
                 <img src={eth} alt="Ethereum Logo" />
 
                 {chainId&&(
-                <select name="networks" id="networks" value={config[chainId] ? `0x${chainId.toString(16)}` : `0`} onChange={networkHandler}>
+                <select name="networks" id="networks" value={chainId && config[chainId] ? `0x${chainId.toString(16)}` : `0`} onChange={networkHandler}>
                     <option value="0" disabled>Select Network</option>
                     <option value="0x7A69">Localhost</option>
                     <option value="0x2a">Kovan</option>
