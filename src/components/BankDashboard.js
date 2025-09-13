@@ -57,7 +57,7 @@ const BankDashboard = () => {
             <div className="holding-info">
               <div className="holding-icon">TGC</div>
               <div className="holding-details">
-                <h4>TRW Gold Coin</h4>
+                <h4>ChaChing Defi Banking Gold Coin</h4>
                 <p>TGC</p>
               </div>
             </div>
@@ -130,7 +130,7 @@ const BankDashboard = () => {
               </div>
               <div className="farm-stat">
                 <span className="stat-label">PENDING REWARDS</span>
-                <span className="stat-value">247.3 TRW</span>
+                <span className="stat-value">247.3 ChaChing Defi Banking</span>
               </div>
             </div>
             <button className="harvest-btn">Harvest Rewards</button>

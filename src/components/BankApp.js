@@ -100,7 +100,7 @@ function BankApp() {
       <div className="bank-navigation glass-enhanced">
         <div className="nav-container">
           <div className="nav-brand">
-            <h1 className="brand-title">TRW</h1>
+            <h1 className="brand-title">ChaChing Defi Banking</h1>
             <span className="brand-subtitle">Private Banking</span>
           </div>
           

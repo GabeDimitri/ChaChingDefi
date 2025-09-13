@@ -10,7 +10,7 @@ const TransferInterface = () => {
 
   const assets = [
     { symbol: 'ETH', name: 'Ethereum', balance: '5.2847' },
-    { symbol: 'TGC', name: 'TRW Gold Coin', balance: '15,847' },
+    { symbol: 'TGC', name: 'ChaChing Defi Banking Gold Coin', balance: '15,847' },
     { symbol: 'USDC', name: 'USD Coin', balance: '2,450' }
   ];
 

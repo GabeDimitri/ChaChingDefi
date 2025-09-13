@@ -1,5 +1,5 @@
 
-# Custom built DEX to work in confluence with TRW Platform
+# Custom built DEX to work in confluence with ChaChing Defi Banking Platform
 
 ## Setting up
 

@@ -13,7 +13,7 @@ const YieldFarming = () => {
       featured: true,
       userStake: '$8,429.00',
       pendingRewards: '247.3',
-      rewardToken: 'TRW',
+      rewardToken: 'ChaChing Defi Banking',
       dailyRewards: '$12.47'
     },
     {
@@ -23,7 +23,7 @@ const YieldFarming = () => {
       tvl: '$5.8M',
       userStake: '$0.00',
       pendingRewards: '0',
-      rewardToken: 'TRW',
+      rewardToken: 'ChaChing Defi Banking',
       dailyRewards: '$0.00'
     }
   ];
@@ -98,7 +98,7 @@ const YieldFarming = () => {
                   <div className="rewards-header">
                     <div>
                       <div className="rewards-label">PENDING</div>
-                      <div className="rewards-value">{farm.pendingRewards} TRW</div>
+                      <div className="rewards-value">{farm.pendingRewards} ChaChing Defi Banking</div>
                     </div>
                     <div className="rewards-token">REWARD TOKEN</div>
                   </div>
@@ -111,7 +111,7 @@ const YieldFarming = () => {
                   <button className="farm-btn">+ Stake</button>
                   <button className="farm-btn">- Unstake</button>
                   <button className="farm-btn primary" style={{ gridColumn: '1 / -1' }}>
-                    Harvest ({farm.pendingRewards} TRW)
+                    Harvest ({farm.pendingRewards} ChaChing Defi Banking)
                   </button>
                 </div>
               </>
@@ -149,21 +149,21 @@ const YieldFarming = () => {
             <div className="history-item">
               <span className="history-date">Today</span>
               <div className="history-amount">
-                <span className="history-token">+15.7 TRW</span>
+                <span className="history-token">+15.7 ChaChing Defi Banking</span>
                 <span className="history-value">$82.80</span>
               </div>
             </div>
             <div className="history-item">
               <span className="history-date">Yesterday</span>
               <div className="history-amount">
-                <span className="history-token">+18.2 TRW</span>
+                <span className="history-token">+18.2 ChaChing Defi Banking</span>
                 <span className="history-value">$72.80</span>
               </div>
             </div>
             <div className="history-item">
               <span className="history-date">2 days ago</span>
               <div className="history-amount">
-                <span className="history-token">+16.9 TRW</span>
+                <span className="history-token">+16.9 ChaChing Defi Banking</span>
                 <span className="history-value">$67.60</span>
               </div>
             </div>
@@ -177,7 +177,7 @@ const YieldFarming = () => {
         <div className="quick-action-item">
           <div className="action-info">
             <h4>Harvest All Rewards</h4>
-            <p>247.3 TRW</p>
+            <p>247.3 ChaChing Defi Banking</p>
           </div>
           <div className="action-value">~$988.20</div>
         </div>

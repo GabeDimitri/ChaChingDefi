@@ -62,7 +62,7 @@ const Navbar = () => {
         <div className='exchange__header grid'>
             <div className='exchange__header--brand flex'>
                 <img className="logo" src={logo} alt="Logo" />
-                <h1>TRW Exchange</h1>
+                <h1>ChaChing Defi Banking Exchange</h1>
             </div>
             <div className='exchange__header--networks flex'>
                 <img src={eth} alt="Ethereum Logo" />

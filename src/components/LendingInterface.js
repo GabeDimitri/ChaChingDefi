@@ -16,7 +16,7 @@ const LendingInterface = () => {
     },
     {
       symbol: 'TGC',
-      name: 'TRW Gold Coin',
+      name: 'ChaChing Defi Banking Gold Coin',
       balance: '15,847',
       supplyAPY: '8.93',
       borrowAPY: '12.15'
