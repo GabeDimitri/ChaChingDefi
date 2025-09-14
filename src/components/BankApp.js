@@ -24,6 +24,7 @@ import '../styles/BankApp.css';
 import '../styles/PremiumAnimations.css';
 
 function BankApp() {
+  console.log('BankApp component rendering...');
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState('dashboard');
 
