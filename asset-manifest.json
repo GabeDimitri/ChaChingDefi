@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/chachingdefi/static/css/main.f23f08b2.css",
-    "main.js": "/chachingdefi/static/js/main.8b9db079.js",
+    "main.js": "/chachingdefi/static/js/main.652f2ceb.js",
     "static/js/453.bc393b86.chunk.js": "/chachingdefi/static/js/453.bc393b86.chunk.js",
     "static/media/logo.png": "/chachingdefi/static/media/logo.7bcfdd1e591911cc0fa2.png",
     "static/media/tgc.png": "/chachingdefi/static/media/tgc.dc49ce612d2bbff793e3.png",
@@ -11,11 +11,11 @@
     "static/media/right-arrow-blue.svg": "/chachingdefi/static/media/right-arrow-blue.ca2b94489a8c12d7dcb1.svg",
     "static/media/right-arrow-white.svg": "/chachingdefi/static/media/right-arrow-white.19d9142149236f77e725.svg",
     "main.f23f08b2.css.map": "/chachingdefi/static/css/main.f23f08b2.css.map",
-    "main.8b9db079.js.map": "/chachingdefi/static/js/main.8b9db079.js.map",
+    "main.652f2ceb.js.map": "/chachingdefi/static/js/main.652f2ceb.js.map",
     "453.bc393b86.chunk.js.map": "/chachingdefi/static/js/453.bc393b86.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f23f08b2.css",
-    "static/js/main.8b9db079.js"
+    "static/js/main.652f2ceb.js"
   ]
 }
