@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/chachingdefi/static/css/main.f23f08b2.css",
-    "main.js": "/chachingdefi/static/js/main.652f2ceb.js",
-    "static/js/453.bc393b86.chunk.js": "/chachingdefi/static/js/453.bc393b86.chunk.js",
-    "static/media/logo.png": "/chachingdefi/static/media/logo.7bcfdd1e591911cc0fa2.png",
-    "static/media/tgc.png": "/chachingdefi/static/media/tgc.dc49ce612d2bbff793e3.png",
-    "static/media/eth.svg": "/chachingdefi/static/media/eth.37fb3a237719070195713f345f83efe2.svg",
-    "static/media/sort.svg": "/chachingdefi/static/media/sort.2c2de130343812cb65c091a3d94a7ddd.svg",
-    "index.html": "/chachingdefi/index.html",
-    "static/media/right-arrow-blue.svg": "/chachingdefi/static/media/right-arrow-blue.ca2b94489a8c12d7dcb1.svg",
-    "static/media/right-arrow-white.svg": "/chachingdefi/static/media/right-arrow-white.19d9142149236f77e725.svg",
-    "main.f23f08b2.css.map": "/chachingdefi/static/css/main.f23f08b2.css.map",
-    "main.652f2ceb.js.map": "/chachingdefi/static/js/main.652f2ceb.js.map",
-    "453.bc393b86.chunk.js.map": "/chachingdefi/static/js/453.bc393b86.chunk.js.map"
+    "main.css": "/ChaChingDefi/static/css/main.024dee6d.css",
+    "main.js": "/ChaChingDefi/static/js/main.8d485eb2.js",
+    "static/js/453.bc393b86.chunk.js": "/ChaChingDefi/static/js/453.bc393b86.chunk.js",
+    "static/media/logo.png": "/ChaChingDefi/static/media/logo.7bcfdd1e591911cc0fa2.png",
+    "static/media/tgc.png": "/ChaChingDefi/static/media/tgc.dc49ce612d2bbff793e3.png",
+    "static/media/eth.svg": "/ChaChingDefi/static/media/eth.37fb3a237719070195713f345f83efe2.svg",
+    "static/media/sort.svg": "/ChaChingDefi/static/media/sort.2c2de130343812cb65c091a3d94a7ddd.svg",
+    "index.html": "/ChaChingDefi/index.html",
+    "static/media/right-arrow-blue.svg": "/ChaChingDefi/static/media/right-arrow-blue.ca2b94489a8c12d7dcb1.svg",
+    "static/media/right-arrow-white.svg": "/ChaChingDefi/static/media/right-arrow-white.19d9142149236f77e725.svg",
+    "main.024dee6d.css.map": "/ChaChingDefi/static/css/main.024dee6d.css.map",
+    "main.8d485eb2.js.map": "/ChaChingDefi/static/js/main.8d485eb2.js.map",
+    "453.bc393b86.chunk.js.map": "/ChaChingDefi/static/js/453.bc393b86.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f23f08b2.css",
-    "static/js/main.652f2ceb.js"
+    "static/css/main.024dee6d.css",
+    "static/js/main.8d485eb2.js"
   ]
 }
