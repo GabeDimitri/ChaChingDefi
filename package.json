@@ -1,8 +1,8 @@
 {
-  "name": "trwExchange",
+  "name": "chachingdefi",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gabedimitri.github.io/trwExchange",
+  "homepage": "https://gabedimitri.github.io/chachingdefi",
   "dependencies": {
     "@babel/preset-env": "^7.24.8",
     "@babel/preset-react": "^7.24.7",
